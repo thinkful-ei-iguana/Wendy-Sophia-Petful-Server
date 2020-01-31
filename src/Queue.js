@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 class _Node {
   constructor(value) {
     this.value = value;
@@ -40,12 +41,4 @@ class Queue {
   }
 }
 
-let cats = new Queue();
-let dogs = new Queue();
-
-
-module.exports = {
-  Queue,
-  cats,
-  dogs
-}
+module.exports = Queue;

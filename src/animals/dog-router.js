@@ -1,18 +1,26 @@
-const express = require('express');
-const DogsService = require('./dog-service');
+const express = require("express");
+const { dogsQ } = require("./dog-service");
 
 const dogRouter = express.Router();
 
 dogRouter
-    .route('/dogs')
-    .get((req, res) => {
-        const dogs = CatsService.getAllDogs();
-        if (!dogs) {
-            return res.status(400).json({
-                error: 'Sorry there are no cats at the moment'
-            })
-            return res.json(dogs);
-        }
-    })
+  .route("/")
+  .get((req, res) => {
+    if (!dogsQ.first) {
+      return res.status(400).json({
+        error: "Sorry there are no dogs available at this time"
+      });
+    }
+    return res.json(dogsQ.first.value);
+  })
+  .delete((req, res) => {
+    dogsQ.dequeue();
+    if (!dogsQ.first) {
+      return res.status(400).json({
+        error: "Sorry there are no dogs available at this time"
+      });
+    }
+    return res.json(dogsQ.first.value);
+  });
 
 module.exports = dogRouter;
