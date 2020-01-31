@@ -40,11 +40,12 @@ class Queue {
   }
 }
 
-// let cats = new Queue();
-// let dogs = new Queue();
-// function main() {
-//   // cats.enqueue("hicat");
-console.log("cats");
-// }
-// main();
-module.exports = Queue;
+let cats = new Queue();
+let dogs = new Queue();
+
+
+module.exports = {
+  Queue,
+  cats,
+  dogs
+}

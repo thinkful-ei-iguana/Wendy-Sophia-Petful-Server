@@ -1,8 +1,17 @@
+
+require('dotenv').config();
+const { PORT } = require('./config');
 const express = require('express');
 const cors = require('cors');
+const catRouter = require('./animals/cat-router');
+const dogRouter = require('./animals/dog-router');
 
 const app = express();
 app.use(cors());
+
+
+app.use('/api/cats', catRouter);
+app.use('/api/dogs', dogRouter);
 
 // Catch-all 404
 app.use(function (req, res, next) {
