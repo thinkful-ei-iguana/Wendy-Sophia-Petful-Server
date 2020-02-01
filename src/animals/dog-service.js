@@ -10,7 +10,7 @@ const fillDogQ = dogArr => {
   return dogsQ;
 };
 
-// fillDogQ(petData.dogs);
+fillDogQ(petData.dogs);
 
 const displayDogQ = queue => {
   let node = queue.first;
