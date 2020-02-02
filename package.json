@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
+  "engines": {
+    "node": "10.15.3"
+  },
   "author": "Alex Cumbo",
   "license": "UNLICENSED",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "predeploy": "npm audit",
+    "deploy": "git push heroku master"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
