@@ -10,7 +10,10 @@ const fillDogQ = dogArr => {
   return dogsQ;
 };
 
-fillDogQ(petData.dogs);
+const reload = () => {
+  console.log("hitting reload...");
+  fillDogQ(petData.dogs);
+};
 
 const displayDogQ = queue => {
   let node = queue.first;
@@ -20,4 +23,4 @@ const displayDogQ = queue => {
   }
 };
 
-module.exports = { fillDogQ, dogsQ };
+module.exports = { dogsQ, reload, displayDogQ };

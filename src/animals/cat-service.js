@@ -12,9 +12,10 @@ const fillCatQ = catArr => {
 };
 
 const reload = () => {
-  console.log('hitting reload...');
+  console.log("hitting reload...");
   fillCatQ(petData.cats);
-}
+};
+// fillCatQ(petData.cats);
 
 const displayCatQ = queue => {
   let node = queue.first;
@@ -24,4 +25,4 @@ const displayCatQ = queue => {
   }
 };
 
-module.exports = { reload, catsQ };
+module.exports = { reload, fillCatQ, catsQ, displayCatQ };
