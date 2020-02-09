@@ -12,15 +12,14 @@ const fillCatQ = catArr => {
 };
 
 const reload = () => {
-  console.log("hitting reload...");
+  // console.log("hitting reload...");
   fillCatQ(petData.cats);
 };
-// fillCatQ(petData.cats);
 
 const displayCatQ = queue => {
   let node = queue.first;
   while (node) {
-    console.log(node.value);
+    console.log("im the node value,", node.value);
     node = node.next;
   }
 };

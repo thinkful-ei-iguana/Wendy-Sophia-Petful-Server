@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 const express = require("express");
-const { reload, catsQ, fillCatQ } = require("./cat-service");
+const { reload, catsQ, fillCatQ, displayCatQ } = require("./cat-service");
 const petData = require("../petData");
 
 const catRouter = express.Router();
@@ -29,6 +29,7 @@ catRouter
       last: catsQ.last,
       yourTurn: yourTurn
     };
+
     return res.json(response);
   })
   .delete((req, res) => {
@@ -41,10 +42,18 @@ catRouter
     }
     return res.json(catsQ.first.value);
   });
-
-catRouter.route("/reload").get((req, res) => {
-  reload();
+catRouter.route("/morecats").get((req, res, next) => {
+  if (!catsQ.first) {
+    reload();
+  }
   return res.status(200).json({});
+});
+catRouter.route("/allcats").get((req, res, next) => {
+  // if (!catsQ.first) {
+  reload();
+  // } else {
+  res.json(catsQ.first.next);
+  // }
 });
 
 module.exports = catRouter;
