@@ -19,7 +19,6 @@ const reload = () => {
 const displayCatQ = queue => {
   let node = queue.first;
   while (node) {
-    console.log("im the node value,", node.value);
     node = node.next;
   }
 };
