@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 const express = require("express");
-const { dogsQ, reload, displayDogQ } = require("./dog-service");
+const { reload, dogsQ } = require("./dog-service");
 
 const dogRouter = express.Router();
 
@@ -8,32 +8,32 @@ dogRouter
   .route("/")
   .get((req, res) => {
     if (!dogsQ.first) {
-      // return res.status(400).json({
-      //   error: "Sorry there are no dogs available at this time"
-      // });
       reload();
     }
-    return res.json(dogsQ.first.value);
+
+    var response = {
+      dog: dogsQ.first.value
+    };
+
+    return res.json(response);
   })
   .delete((req, res) => {
     dogsQ.dequeue();
     if (!dogsQ.first) {
-      return res.status(400).json({
-        error: "Sorry there are no dogs available at this time"
-      });
+      reload();
     }
     return res.json(dogsQ.first.value);
   });
-
-dogRouter.route("/available").get((req, res) => {
-  let dogList = displayDogQ(dogsQ);
+dogRouter.route("/moredogs").get((req, res, next) => {
   if (!dogsQ.first) {
-    return res.status(400).json({
-      error: "Sorry there are no dogs available at this time"
-    });
-  } else {
-    console.log(dogList);
-    return res.json(dogList);
+    reload();
   }
+  return res.status(200).json({});
 });
+dogRouter.route("/alldogs").get((req, res, next) => {
+  reload();
+
+  res.json(dogsQ.first.next);
+});
+
 module.exports = dogRouter;

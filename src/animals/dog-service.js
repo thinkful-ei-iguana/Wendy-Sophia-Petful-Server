@@ -18,9 +18,8 @@ const reload = () => {
 const displayDogQ = queue => {
   let node = queue.first;
   while (node) {
-    console.log(node.value);
     node = node.next;
   }
 };
 
-module.exports = { dogsQ, reload, displayDogQ };
+module.exports = { dogsQ, reload, displayDogQ, fillDogQ };
