@@ -11,7 +11,6 @@ const fillDogQ = dogArr => {
 };
 
 const reload = () => {
-  console.log("hitting reload...");
   fillDogQ(petData.dogs);
 };
 

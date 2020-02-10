@@ -12,7 +12,6 @@ const fillCatQ = catArr => {
 };
 
 const reload = () => {
-  // console.log("hitting reload...");
   fillCatQ(petData.cats);
 };
 
