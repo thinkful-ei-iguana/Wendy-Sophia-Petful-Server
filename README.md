@@ -1,26 +1,37 @@
-# Express Boilerplate!
+# Petful
 
-This is a boilerplate project used for starting new projects!
+A pet adoption app built by Sophia Koeut and Wendy Bartos for Thinkful's Engineering Immersion Program.
 
-## How do set up?
+## The project
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+Petful operates on a first-in, first-out basis. Given a queue of dogs and a queue of cats (on the backend), users adopt the first available pet. As a new adopter, add your name to the waiting list and watch as each available pet gets adopted. When it's your turn to adopt your pet, click the adopt button to dequeue that pet and complete the adoption process!
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+![Home Page](src/images/homepage.png "Home Page")
+![Sign up for adoption](src/images/signup.png "Sign up for adoption")
+![Waitlist](src/images/waitlist.png "Waitlist Page")
+![Summary Page](src/images/summary.png "Summary Page")
 
-## Scripts
+## We'll do it live!
 
-Start the application `npm start`
+[Petful Live App](https://y-chi.now.sh/)
 
-Start nodemon for the application `npm run dev`
+[Petful client (Github)](https://github.com/thinkful-ei-iguana/Wendy-Sophia-Petful-Client)
 
-Run the tests in watch mode `npm test`
+## Technology Used
 
-## Deploying
+Front-End: _ReactJS | CSS_
 
-When your new project is ready for deployment, add a new heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+Back-End: _NodeJS | ExpressJS_
+
+## API Documentation
+
+| Method | Path               | Purpose                                                        |
+| ------ | ------------------ | -------------------------------------------------------------- |
+| GET    | /api/cats          | Get the first cat in the queue                                 |
+| DELETE | /api/cats          | Dequeues the first cat in the queue                            |
+| GET    | /api/cats/morecats | Reloads the cats in the queue when there are no more available |
+| GET    | /api/cats/allcats  | Get all cats next in the queue                                 |
+| GET    | /api/dogs          | Get the first dog in the queue                                 |
+| DELETE | /api/dogs          | Dequeues the first dog in the queue                            |
+| GET    | /api/dogs/moredogs | Reloads the dogs in the queue when there are no more available |
+| GET    | /api/dogs/alldogs  | Get all dogs next in the queue                                 |
