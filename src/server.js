@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 require("dotenv").config();
-const { CLIENT_ORIGIN } = require('./config');
+const { PORT, CLIENT_ORIGIN } = require("./config");
 const express = require("express");
 const cors = require("cors");
 const catRouter = require("./animals/cat-router");
@@ -35,7 +35,6 @@ app.use(function (err, req, res, next) {
   });
 });
 
-const PORT = process.env.PORT || 8000
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
