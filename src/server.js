@@ -8,9 +8,11 @@ const dogRouter = require("./animals/dog-router");
 // const userRouter = require("./users/users-router");
 
 const app = express();
-app.use({
-  origin: CLIENT_ORIGIN
-});
+app.use(
+  cors({
+    origin: CLIENT_ORIGIN
+  })
+);
 
 app.use("/api/cats", catRouter);
 app.use("/api/dogs", dogRouter);
